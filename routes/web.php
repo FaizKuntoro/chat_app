@@ -4,10 +4,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check()) {
+        return redirect('/Chatup');
+    }
+    return view('welcome'); // or wherever you want to redirect unauthenticated users
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dasboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 

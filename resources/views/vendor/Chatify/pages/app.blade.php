@@ -5,21 +5,30 @@
         {{-- Header and search bar --}}
         <div class="m-header">
             <nav>
-                <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">MESSAGES</span> </a>
-                {{-- header buttons --}}
-                <nav class="m-header-right">
-                    <a href="#"><i class="fas fa-cog settings-btn"></i></a>
-                    <a href="#" class="listView-x"><i class="fas fa-times"></i></a>
-                </nav>
+                <div style="display: flex; align-items: center;">
+                    <a href="#" style="display: flex; align-items: center; text-decoration: none; ">
+                        <img src="https://i.pinimg.com/originals/44/a5/5f/44a55f17988152809eac53d314651dcc.png" style="width: 10%;" alt="Social Media Sketch">
+                        <span class="messenger-headTitle" style="margin-left: 5px;">ChatUp</span>
+                    </a>
+                    {{-- header buttons --}}
+                    <nav class="m-header-right" style="margin-left: auto;">
+                        <a href="#" style=""><i class="fas fa-cog settings-btn"></i></a>
+                        <a href="#" class="listView-x"><i class="fas fa-times"></i></a>
+                        {{-- Logout button --}}
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="margin-left: 10px;">
+                            <i></i> Logout
+                        </a>
+                    </nav>
+                </div>
             </nav>
             {{-- Search input --}}
             <input type="text" class="messenger-search" placeholder="Search" />
-            {{-- Tabs --}}
-            {{-- <div class="messenger-listView-tabs">
-                <a href="#" class="active-tab" data-view="users">
-                    <span class="far fa-user"></span> Contacts</a>
-            </div> --}}
         </div>
+
         {{-- tabs and lists --}}
         <div class="m-body contacts-container">
            {{-- Lists [Users/Group] --}}
@@ -50,10 +59,10 @@
 
     {{-- ----------------------Messaging side---------------------- --}}
     <div class="messenger-messagingView">
-        {{-- header title [conversation name] amd buttons --}}
+        {{-- header title [conversation name] and buttons --}}
         <div class="m-header m-header-messaging">
             <nav class="chatify-d-flex chatify-justify-content-between chatify-align-items-center">
-                {{-- header back button, avatar and user name --}}
+                {{-- header back button, avatar, and user name --}}
                 <div class="chatify-d-flex chatify-justify-content-between chatify-align-items-center">
                     <a href="#" class="show-listView"><i class="fas fa-arrow-left"></i></a>
                     <div class="avatar av-s header-avatar" style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;">
@@ -109,3 +118,4 @@
 
 @include('Chatify::layouts.modals')
 @include('Chatify::layouts.footerLinks')
+

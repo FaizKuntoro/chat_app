@@ -18,7 +18,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
             <div>
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                     <img src="https://i.pinimg.com/originals/75/7e/04/757e04a8111318fefc7222709edc3f59.png" style="display: block; margin: 0 auto; width: 18%;" alt="Social Media Sketch">
                 </a>
             </div>
 
